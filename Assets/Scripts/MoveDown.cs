@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MoveDown : MonoBehaviour
 {
-    public float speed = 8f;
-    public GameObject tmp1;
-    public GameObject tmp2;
+    private float speed = 5f;
     void Start()
     {
-        Debug.Log(tmp1.transform.position.z - tmp2.transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(-Vector3.forward * speed * Time.deltaTime);
+        if(transform.position.z < -50 && !CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
