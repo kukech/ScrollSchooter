@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveBullet : MonoBehaviour
 {
     public float speed = 10f;
+    private float topBorder = 15f;
     void Start()
     {
         
@@ -14,6 +15,6 @@ public class MoveBullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        if (transform.position.z > 10) { Destroy(gameObject); }
+        if (transform.position.z > topBorder) { Destroy(gameObject); }
     }
 }
